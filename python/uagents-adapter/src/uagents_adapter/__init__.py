@@ -22,6 +22,14 @@ except ImportError:
     A2A_AVAILABLE = False
     # Do not define placeholders; raise a clear ImportError on access instead
 
+# Conditional imports for ChatAdapter module
+try:
+    from .chat_adapter import ChatAdapter
+    CHAT_ADAPTER_AVAILABLE = True
+
+except ImportError:
+    CHAT_ADAPTER_AVAILABLE = False
+
 try:
     __version__ = metadata.version(__package__)
 except metadata.PackageNotFoundError:
@@ -52,3 +60,9 @@ if A2A_AVAILABLE:
             "SingleA2AAdapter",
         ]
     )
+
+
+if CHAT_ADAPTER_AVAILABLE:
+
+    __all__.extend("ChatAdapter")
+   

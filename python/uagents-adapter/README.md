@@ -339,6 +339,44 @@ python -m uagents_adapter.a2a_inbound.cli \
 
 > **Security Note**: Always set `UAGENTS_BRIDGE_SEED` environment variable for production deployments to ensure consistent bridge agent addresses across restarts and prevent conflicts.
 
+## Chat Adapter
+
+A universal plugin that connects any AI agent framework (LlamaIndex, LangChain, LangGraph, CrewAI, or custom) with the uAgents ecosystem, enabling seamless communication within the Fetch.ai agent network.
+
+```python
+from dataclasses import dataclass  # Import dataclass
+from uagents import Agent
+from uagents_adapter.chat_adapter import ChatAdapter
+from my_workflow import my_workflow  # <-- Import your custom workflow here
+
+@dataclass
+class AdapterContext:   
+    """A simple data container for session context."""
+    session_id: str
+    user_id: str
+
+async def Chat_agent_function(query: str, session_id: str, user_id: str) -> str:
+            
+    # Create the context object, like in your snippet
+    ctx = AdapterContext(session_id=session_id, user_id=user_id)
+    response = await my_workflow(query, tx=ctx)
+    return str(response)
+
+plugin = ChatAdapter(Chat_agent_function)
+
+agent = Agent(
+    name="Chat_Agent",
+    seed="your_secure_seed_phrase_production",
+    port=8000,
+    mailbox=True
+)
+
+agent.include(plugin.protocol, publish_manifest=True)
+
+print(f"Agent address: {agent.address}")
+
+plugin.run(agent)
+```
  
 
 ## Agentverse Integration
