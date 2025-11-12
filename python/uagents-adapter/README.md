@@ -346,7 +346,7 @@ A universal plugin that connects any AI agent framework (LlamaIndex, LangChain, 
 ```python
 from dataclasses import dataclass  # Import dataclass
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 @dataclass
