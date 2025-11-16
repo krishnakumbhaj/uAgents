@@ -39,7 +39,7 @@ The plugin works with **any** framework. Here's a minimal example:
 ```python
 from dataclasses import dataclass  # Import dataclass
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 @dataclass
@@ -77,7 +77,7 @@ plugin.run(agent)
 
 ```python
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.llms.openai import OpenAI
 
@@ -104,7 +104,7 @@ plugin.run(agent)
 
 ```python
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from langchain_openai import ChatOpenAI
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
@@ -132,7 +132,7 @@ plugin.run(agent)
 
 ```python
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from crewai import Agent as CrewAgent, Task, Crew
 
 # Initialize your CrewAI setup
@@ -164,7 +164,7 @@ plugin.run(agent)
 ```python
 from dataclasses import dataclass  # Import dataclass
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 @dataclass
@@ -207,7 +207,7 @@ The plugin supports four main configuration patterns:
 ```python
 from dataclasses import dataclass
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 AGENTVERSE_API_TOKEN = "av_xxxxxxxxxxxxxxxxxxxxx"
 
@@ -247,7 +247,7 @@ plugin.run(agent)
 ```python
 from dataclasses import dataclass
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 @dataclass
@@ -280,7 +280,7 @@ plugin.run(agent)
 
 ```python
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 AGENTVERSE_API_TOKEN = "av_xxxxxxxxxxxxxxxxxxxxx"
@@ -314,7 +314,7 @@ plugin.run(agent)
 
 ```python
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from my_workflow import my_workflow  # <-- Import your custom workflow here
 
 async def handle_query(query: str, session_id: str, user_id: str) -> str:
@@ -402,7 +402,7 @@ Here's a complete example showing context-aware agent implementation:
 from dataclasses import dataclass
 from typing import Optional
 from uagents import Agent
-from uagents_adapter.chat_adapter import ChatAdapter
+from uagents_adapter import ChatAdapter
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 from llama_index.llms.openai import OpenAI
 

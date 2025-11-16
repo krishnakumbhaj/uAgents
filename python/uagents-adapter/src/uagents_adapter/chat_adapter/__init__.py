@@ -5,7 +5,7 @@ Seamlessly integrate frameworks like LangChain, LlamaIndex, CrewAI, OpenAI SDK, 
 or your custom logic into uAgents with minimal setup.
 
 Example:
-    from uagents_adapter.chat_adapter import ChatAdapter
+    from uagents_adapter import ChatAdapter
     plugin = ChatAdapter(my_workflow)
     agent.include(plugin.protocol)
     plugin.run(agent)
